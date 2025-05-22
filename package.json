@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
     "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.12.1",
     "howler": "^2.2.4",
     "lottie-react": "^2.4.1",
