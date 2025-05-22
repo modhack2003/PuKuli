@@ -5,6 +5,7 @@ import Proposal from "./components/Proposal";
 import Celebration from "./components/Celebration";
 import FloatingHearts from "./components/FloatingHearts";
 import PhotoStory from "./components/PhotoStory";
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [step, setStep] = useState(0);
@@ -32,6 +33,7 @@ function App() {
       {step === 2 && <LoveLetter onNext={() => handleStepChange(3)} />}
       {step === 3 && <Proposal onYes={() => handleStepChange(4)} />}
       {step === 4 && <Celebration />}
+       <Analytics />
     </div>
   );
 }
