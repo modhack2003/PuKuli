@@ -1,3 +1,4 @@
+// src/components/PhotoStory.jsx
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import image1 from "../photos/photo1.jpg";
 import image2 from "../photos/photo2.jpg";
@@ -9,7 +10,6 @@ import image7 from "../photos/photo7.jpg";
 import image8 from "../photos/photo8.jpg";
 import image9 from "../photos/photo9.jpg";
 import image10 from "../photos/photo10.jpg";
-
 import song1 from "../songs/Sudhu-Tomari-Jonno (mp3cut.net).mp3";
 import song2 from "../songs/ekhon (mp3cut.net) (1).mp3";
 import song3 from "../songs/Cheri Cheri Lady_Modern Talking (mp3cut.net).mp3";
@@ -51,18 +51,18 @@ const TypedLine = ({ line, onComplete }) => {
       if (index <= line.length) {
         setDisplayed(line.slice(0, index));
         index++;
-        setTimeout(type, 45); // ⏱️ Typing speed here (adjust as needed)
+        setTimeout(type, 50);
       } else {
         onComplete();
       }
     };
 
-    const initialDelay = setTimeout(type, 10); // Delay before typing starts
+    const initialDelay = setTimeout(type, 50);
     return () => clearTimeout(initialDelay);
   }, [line, onComplete]);
 
   return (
-    <p className="text-xl sm:text-2xl text-gray-800 leading-relaxed whitespace-pre-wrap font-sans">
+    <p className="text-2xl sm:text-xl text-gray-800 text-left leading-relaxed whitespace-pre-wrap font-sans animate-pulse">
       {displayed}
     </p>
   );
@@ -72,13 +72,13 @@ const PhotoStory = ({ onNext }) => {
   const shuffledPhotos = useMemo(() => shuffle(originalPhotoData), []);
   const [index, setIndex] = useState(0);
   const [lines, setLines] = useState([]);
-  const [currentLine, setCurrentLine] = useState(-1); // Start at -1 to fix first-line bug
+  const [currentLine, setCurrentLine] = useState(0);
 
   const currentPhoto = shuffledPhotos[index];
 
   useEffect(() => {
     setLines(currentPhoto.text.split("\n"));
-    setCurrentLine(-1); // Reset to -1 on each new photo
+    setCurrentLine(0);
   }, [currentPhoto]);
 
   const handleLineComplete = useCallback(() => {
@@ -98,32 +98,26 @@ const PhotoStory = ({ onNext }) => {
       }
     });
 
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
+    return () => audio.pause();
   }, [index, currentPhoto.audio, onNext, shuffledPhotos.length]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-10 transition-opacity duration-700 animate-fadeIn relative space-y-8">
-
+    <div className="min-h-screen flex flex-col items-center justify-center space-y-8 px-4 py-10 transition-opacity duration-700 animate-fadeIn relative">
       {/* Skip Button */}
       <button
         onClick={onNext}
-        className="absolute top-4 right-4 bg-rose-500 hover:bg-rose-600 text-white px-4 py-2 rounded-full shadow text-sm z-10"
+        className="absolute top-4 right-4 bg-rose-500 hover:bg-rose-600 text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg transition-all duration-300 z-10"
       >
-        Skip ⏭️
+        Skip
       </button>
 
-      {/* Image */}
       <img
         src={currentPhoto.src}
         alt={`Photo ${index + 1}`}
-        className="max-h-[70vh] w-auto object-contain rounded-xl shadow-xl border-4 border-rose-200 transition-all"
+        className="w-64 h-88 object-cover rounded-tr-xl rounded-bl-xl shadow-xl border-4 border-rose-200"
       />
 
-      {/* Text on Paper */}
-      <div className="bg-white bg-opacity-80 backdrop-blur border border-rose-200 rounded-tl-2xl rounded-br-2xl px-6 py-8 w-full max-w-3xl shadow-md ruled-paper transition-all duration-500 overflow-hidden">
+      <div className="bg-white bg-opacity-80 backdrop-blur border border-rose-200 rounded-tl-2xl rounded-br-2xl px-6 py-8 w-full max-w-3xl shadow-md relative overflow-hidden ruled-paper transition-all duration-500">
         <div className="flex flex-col space-y-4">
           {lines.slice(0, currentLine + 1).map((line, idx) => (
             <TypedLine key={idx} line={line} onComplete={handleLineComplete} />
