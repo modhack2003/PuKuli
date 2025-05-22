@@ -17,21 +17,20 @@ const Proposal = ({ onYes }) => {
     setSending(true);
     setError(null);
 
-    // Replace these with your EmailJS values
     const serviceID = 'service_sqqt593';
     const templateID = 'template_gzxcb4f';
     const publicKey = 'KmSHcuv2A_ZOa08bz';
 
     const templateParams = {
-      to_name: 'Biku', // Your name or recipient
-      from_name: 'Your MAMON', // You can change or make dynamic
-      message: 'She said YES! 💖', // Customize as needed
+      to_name: 'Biku',
+      from_name: 'Your MAMON',
+      message: 'She said YES! 💖',
     };
 
     emailjs.send(serviceID, templateID, templateParams, publicKey)
       .then(() => {
         setSending(false);
-        onYes();  // Proceed to next step after email sent successfully
+        onYes();
       })
       .catch((err) => {
         setSending(false);
@@ -63,6 +62,7 @@ const Proposal = ({ onYes }) => {
 
         <button
           onMouseEnter={moveNoButton}
+          onTouchStart={moveNoButton} // Added for touch devices
           style={{
             position: "absolute",
             top: noPosition.top,
