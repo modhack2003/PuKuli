@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+
+
+
+.floating-hearts-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-heart {
+  position: absolute;
+  
+  color: rgba(244, 114, 182, 0.8); /* Tailwind pink-400 with opacity */
+  text-shadow: 0 0 6px rgba(244, 114, 182, 0.6);
+  -webkit-user-select: none;
+  user-select: none;
+ 
+}
+
+
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+
+
+@keyframes floatingHeart {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+.animate-floatingHeart {
+  animation-name: floatingHeart;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: pre-wrap;
+  
+  animation: typing 0.5s steps(40, end);
+}
+.ruled-paper {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #ffffff 0px,
+    #ffffff 24px,
+    #fca5a5 25px
+  );
+}
+
+.font-love {
+  font-family: 'Great Vibes', cursive;
+}
+
+
+.heart-shape {
+
+  position: relative;
+  width: 128px;
+  height: 128px;
+  background-color: #f43f5e; /* Tailwind rose-500 */
+  transform: rotate(-45deg);
+  border-radius: 20% 20% 0 0;
+}
+
+.heart-shape::before,
+.heart-shape::after {
+  content: "";
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  background-color: #f43f5e;
+  border-radius: 50%;
+}
+
+.heart-shape::before {
+  top: -62px;
+  left:-2px;
+}
+
+.heart-shape::after {
+  left: 64px;
+  top: 0;
+}
+
+
