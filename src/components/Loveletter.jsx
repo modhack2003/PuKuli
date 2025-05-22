@@ -9,7 +9,7 @@ const LoveLetter = ({ onNext }) => {
           Tomar ekta haashir jonyo aajkal raat bhor jage thaki. Tomar chokher ekta jhalok amar moner ekta pura raatke alo kore dey.
 
           Ei lekha sudhu ekta message na… ei amar hridoyer ekta tukro.
-          Ami tumi chara kichu bhabi na aar, tumi holo amar bikel bela'r megh, ratri'r golpo, ar notun sakaler prothom roddur.
+          Ami tomaka chara kichu bhabi na aar, tumi holo amar bikel bela'r megh, ratri'r golpo, ar notun sakaler prothom roddur.
 
           Shudhu eta bolte chai...
           Ami tomake prithibir sob kichur theke beshi bhalobashi.

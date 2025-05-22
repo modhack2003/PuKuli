@@ -1,5 +1,8 @@
 // src/components/PhotoStory.jsx
 import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import image1 from "../photos/photo1.jpg";
 import image2 from "../photos/photo2.jpg";
 import image3 from "../photos/photo3.jpg";
@@ -10,6 +13,7 @@ import image7 from "../photos/photo7.jpg";
 import image8 from "../photos/photo8.jpg";
 import image9 from "../photos/photo9.jpg";
 import image10 from "../photos/photo10.jpg";
+
 import song1 from "../songs/Sudhu-Tomari-Jonno (mp3cut.net).mp3";
 import song2 from "../songs/ekhon (mp3cut.net) (1).mp3";
 import song3 from "../songs/Cheri Cheri Lady_Modern Talking (mp3cut.net).mp3";
@@ -77,6 +81,22 @@ const PhotoStory = ({ onNext }) => {
   const currentPhoto = shuffledPhotos[index];
 
   useEffect(() => {
+    // Show toast once on component mount
+    toast(
+      "This will be too long, you can skip but I love if you watch 💖",
+      {
+        position: "top-center",
+        autoClose: 6000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "light",
+      }
+    );
+  }, []);
+
+  useEffect(() => {
     setLines(currentPhoto.text.split("\n"));
     setCurrentLine(0);
   }, [currentPhoto]);
@@ -103,6 +123,9 @@ const PhotoStory = ({ onNext }) => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center space-y-8 px-4 py-10 transition-opacity duration-700 animate-fadeIn relative">
+      {/* Toast Container */}
+      <ToastContainer className="pt-16"/>
+
       {/* Skip Button */}
       <button
         onClick={onNext}

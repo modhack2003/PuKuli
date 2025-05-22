@@ -3,7 +3,7 @@ const Landing = ({ onNext }) => {
   return (
     <div className="flex flex-col items-center justify-center h-screen space-y-6 animate-fadeIn">
       <h1 className="text-4xl sm:text-6xl font-bold text-rose-600 animate-pulse font-love">
-        Someone special is waiting... 💌
+        Something special is going to happen... 💌
       </h1>
       <button
         onClick={onNext}
