@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Landing from "./components/landing";
-import LoveLetter from "./components/LoveLetter";
+import LoveLetter from "./components/Loveletter";
 import Proposal from "./components/Proposal";
 import Celebration from "./components/Celebration";
 import FloatingHearts from "./components/FloatingHearts";
