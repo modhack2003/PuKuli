@@ -81,12 +81,11 @@ const PhotoStory = ({ onNext }) => {
   const currentPhoto = shuffledPhotos[index];
 
   useEffect(() => {
-    // Show toast once on component mount
     toast(
       "This will be too long, you can skip but I love if you watch 💖",
       {
         position: "top-center",
-        autoClose: 6000,
+        autoClose: 9000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -123,16 +122,19 @@ const PhotoStory = ({ onNext }) => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center space-y-8 px-4 py-10 transition-opacity duration-700 animate-fadeIn relative">
-      {/* Toast Container */}
-      <ToastContainer className="pt-16"/>
+      <ToastContainer className="pt-16" />
 
-      {/* Skip Button */}
       <button
         onClick={onNext}
         className="absolute top-4 right-4 bg-rose-500 hover:bg-rose-600 text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg transition-all duration-300 z-10"
       >
         Skip
       </button>
+
+      {/* Progress counter */}
+      <div className="absolute top-6 left-6 bg-white bg-opacity-70 text-rose-700 text-sm sm:text-base font-bold px-3 py-1 rounded-full shadow-md z-10">
+        {index + 1} / {shuffledPhotos.length}
+      </div>
 
       <img
         src={currentPhoto.src}

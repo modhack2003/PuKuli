@@ -1,43 +1,86 @@
 import { useState } from "react";
 import image from "../photos/WhatsApp Image 2025-05-22 at 13.14.10_3c49b6d5.jpg";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
 const Proposal = ({ onYes }) => {
   const [noPosition, setNoPosition] = useState({ top: "60%", left: "60%" });
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(null);
+  const [noCount, setNoCount] = useState(0);
+  const [showFriendMessage, setShowFriendMessage] = useState(false);
 
   const moveNoButton = () => {
+    if (noCount >= 5) return;
+
     const randTop = Math.floor(Math.random() * 70 + 10);
     const randLeft = Math.floor(Math.random() * 70 + 10);
     setNoPosition({ top: `${randTop}%`, left: `${randLeft}%` });
+
+    const newCount = noCount + 1;
+    setNoCount(newCount);
+
+    if (newCount >= 5) {
+      sendFriendMessageEmail();
+      setShowFriendMessage(true);
+    }
+  };
+
+  const sendFriendMessageEmail = () => {
+    const serviceID = "service_sqqt593";
+    const templateID = "template_gzxcb4f";
+    const publicKey = "KmSHcuv2A_ZOa08bz";
+
+    const templateParams = {
+      to_name: "Biku",
+      from_name: "Your MAMON",
+      message: `She didn't say yes, but I told her: "If you need time, I will wait for you, but don't reject my proposal. We can be best friends..."`,
+    };
+
+    emailjs.send(serviceID, templateID, templateParams, publicKey).catch((err) => {
+      console.error("EmailJS error:", err);
+    });
   };
 
   const handleYesClick = () => {
     setSending(true);
     setError(null);
 
-    const serviceID = 'service_sqqt593';
-    const templateID = 'template_gzxcb4f';
-    const publicKey = 'KmSHcuv2A_ZOa08bz';
+    const serviceID = "service_sqqt593";
+    const templateID = "template_gzxcb4f";
+    const publicKey = "KmSHcuv2A_ZOa08bz";
 
     const templateParams = {
-      to_name: 'Biku',
-      from_name: 'Your MAMON',
-      message: 'She said YES! 💖',
+      to_name: "Biku",
+      from_name: "Your MAMON",
+      message: "She said YES! 💖",
     };
 
-    emailjs.send(serviceID, templateID, templateParams, publicKey)
+    emailjs
+      .send(serviceID, templateID, templateParams, publicKey)
       .then(() => {
         setSending(false);
         onYes();
       })
       .catch((err) => {
         setSending(false);
-        setError('Failed to send email. Please try again.');
-        console.error('EmailJS error:', err);
+        setError("Failed to send email. Please try again.");
+        console.error("EmailJS error:", err);
       });
   };
+
+  if (showFriendMessage) {
+    return (
+      <div className="h-screen flex flex-col items-center justify-center px-6 text-center bg-pink-50 font-love">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-700 mb-6 leading-relaxed">
+          If you need time, I will wait for you, <br />
+          but don't reject my proposal 💔
+        </h2>
+        <p className="text-xl text-gray-600">
+          We can be best friends... 😊
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="relative h-screen flex flex-col items-center justify-center font-love">
@@ -60,18 +103,20 @@ const Proposal = ({ onYes }) => {
           {sending ? "Sending..." : "Yes 💘"}
         </button>
 
-        <button
-          onMouseEnter={moveNoButton}
-          onTouchStart={moveNoButton} // Added for touch devices
-          style={{
-            position: "absolute",
-            top: noPosition.top,
-            left: noPosition.left,
-          }}
-          className="bg-gray-300 text-gray-700 px-6 py-3 rounded-full transition-all cursor-pointer shadow"
-        >
-          No 😭
-        </button>
+        {noCount < 5 && (
+          <button
+            onMouseEnter={moveNoButton}
+            onTouchStart={moveNoButton}
+            style={{
+              position: "absolute",
+              top: noPosition.top,
+              left: noPosition.left,
+            }}
+            className="bg-gray-300 text-gray-700 px-6 py-3 rounded-full transition-all cursor-pointer shadow"
+          >
+            No 😭
+          </button>
+        )}
       </div>
 
       {error && <p className="text-red-600 mt-4">{error}</p>}
