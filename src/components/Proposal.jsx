@@ -1,5 +1,5 @@
 import { useState } from "react";
-import image from "../photos/WhatsApp Image 2025-05-22 at 13.14.10_3c49b6d5.jpg";
+import image from "../photos/photo11.jpg";
 import emailjs from "@emailjs/browser";
 
 const Proposal = ({ onYes }) => {
@@ -10,7 +10,7 @@ const Proposal = ({ onYes }) => {
   const [showFriendMessage, setShowFriendMessage] = useState(false);
 
   const moveNoButton = () => {
-    if (noCount >= 5) return;
+    if (noCount >= 7) return;
 
     const randTop = Math.floor(Math.random() * 70 + 10);
     const randLeft = Math.floor(Math.random() * 70 + 10);
@@ -19,7 +19,7 @@ const Proposal = ({ onYes }) => {
     const newCount = noCount + 1;
     setNoCount(newCount);
 
-    if (newCount >= 5) {
+    if (newCount >= 7) {
       sendFriendMessageEmail();
       setShowFriendMessage(true);
     }
@@ -32,7 +32,7 @@ const Proposal = ({ onYes }) => {
 
     const templateParams = {
       to_name: "Biku",
-      from_name: "Your MAMON",
+      from_name: "Your Pukuli",
       message: `She didn't say yes, but I told her: "If you need time, I will wait for you, but don't reject my proposal. We can be best friends..."`,
     };
 
@@ -51,7 +51,7 @@ const Proposal = ({ onYes }) => {
 
     const templateParams = {
       to_name: "Biku",
-      from_name: "Your MAMON",
+      from_name: "Your Pukuli",
       message: "She said YES! 💖",
     };
 
@@ -85,12 +85,12 @@ const Proposal = ({ onYes }) => {
   return (
     <div className="relative h-screen flex flex-col items-center justify-center font-love">
       <h2 className="text-4xl sm:text-5xl font-bold text-rose-700 mb-6">
-        Will you be mine, Mamon? 💖
+        Will you be mine, Soumili? 💖
       </h2>
 
       <img
         src={image}
-        alt="Mamon"
+        alt="SOUMILI"
         className="w-64 h-64 rounded-full object-cover border-4 border-rose-300 shadow-lg mb-8"
       />
 
@@ -103,7 +103,7 @@ const Proposal = ({ onYes }) => {
           {sending ? "Sending..." : "Yes 💘"}
         </button>
 
-        {noCount < 5 && (
+        {noCount < 7 && (
           <button
             onMouseEnter={moveNoButton}
             onTouchStart={moveNoButton}

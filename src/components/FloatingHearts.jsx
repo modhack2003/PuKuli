@@ -30,7 +30,7 @@ const FloatingHearts = () => {
             }}
             className="floating-heart"
           >
-            💖
+            💜
           </motion.div>
         );
       })}

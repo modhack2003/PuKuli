@@ -7,7 +7,7 @@ const Landing = ({ onNext }) => {
       </h1>
       <button
         onClick={onNext}
-        className="mt-16 w-16 h-16 bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold shadow-lg transition-transform transform hover:scale-110 heart-shape relative"
+        className="mt-18 w-18 h-16 bg-purple-500 hover:bg-purple-600 text-white text-xs font-bold shadow-lg transition-transform transform hover:scale-110 heart-shape relative"
       >
         {/* Optional Emoji or Icon */}
         <span className="absolute top-[-5%] left-[-10%] rotate-45 text-9xl z-50">💖</span>

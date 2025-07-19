@@ -86,7 +86,7 @@
   position: relative;
   width: 128px;
   height: 128px;
-  background-color: #f43f5e; /* Tailwind rose-500 */
+  background-color: #e030f4; /* Tailwind rose-500 */
   transform: rotate(-45deg);
   border-radius: 20% 20% 0 0;
 }
@@ -95,19 +95,19 @@
 .heart-shape::after {
   content: "";
   position: absolute;
-  width: 128px;
+  width: 126px;
   height: 128px;
-  background-color: #f43f5e;
+  background-color: #e030f4;
   border-radius: 50%;
 }
 
 .heart-shape::before {
-  top: -62px;
-  left:-2px;
+  top: -50px;
+  left:-1px;
 }
 
 .heart-shape::after {
-  left: 64px;
+  left: 55px;
   top: 0;
 }
 
