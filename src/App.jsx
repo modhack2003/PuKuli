@@ -28,10 +28,11 @@ function App() {
 
   return (
     <div
-      className={`relative min-h-screen bg-gradient-to-br from-rose-100 via-pink-200 to-pink-100 text-center font-serif transition-opacity duration-1000 ${
+      className={`relative min-h-screen bg-gradient-to-br from-purple-600 via-rose-200 to-pink-400 text-center font-serif transition-opacity duration-1000 ${
         fade ? "opacity-100" : "opacity-0"
       }`}
     >
+      
       <FloatingHearts />
       {step === 0 && <Landing onNext={() => handleStepChange(1)} />}
       {step === 1 && <PhotoStory onNext={() => handleStepChange(2)} />}
@@ -40,6 +41,7 @@ function App() {
       {step === 4 && <Celebration message={celebrationMessage} />}
       <Analytics />
       <SpeedInsights />
+      
     </div>
   );
 }

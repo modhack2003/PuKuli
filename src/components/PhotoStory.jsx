@@ -29,13 +29,13 @@ const originalPhotoData = [
   { src: image1, text: `Shudhu tumi chao jodi\nSajabo abar nodi\nEshechi hajar barone\nShudhu tomari jonne🎵`, audio: song1 },
   { src: image2, text: `Ami vabte parini\nTumi buker vitor fatcho amar\nShorir jure tomar premer bij\nAmi thamte parini\nTomar gaale norom dukkho\nAmay duhat diye muchte dio please.. ❤️`, audio: song2 },
   { src: image3, text: `I get up, I get down, all my world turns around\nWho is right? Who is wrong? I don't know\nI've got pain in my heart, got a love in my soul\nEasy come, but I think easy go`, audio: song3 },
-  { src: image4, text: `Jaana Mere Sawalon Ka Manzar Tu Han\nMai Sukha Sa Sara Samandar Tu Haan\nGulabi Si Surkhi Jo Dikhti Thi\nPhir Se Dikh Jaye Toh Jee Bhar Ke Saah Bhar Lu`, audio: song4 },
+  { src: image4, text: `Jaana Mere Sawalon Ka Manzar Tu Han\nMai Sukha Sa Sara Samandar Tu Haan\nGulabi Si Surkhi Jo Dikhti Thi\nPhir Se Dikh Jaye Toh Jee Bhar Ke Saah Bhar Lu`, audio: song10 },
   { src: image5, text: `Ankhiyan Teri Mere Dil Pe Vaar Kare\nTeri Yeh Ada Janiye\nTujhe Na Pata Jaaniye\nHai Aisa Nasha Janiye 💞`, audio: song5 },
   { src: image6, text: `Tujh mein rab dikhta hai\nYaara main kya karun💫`, audio: song6 },
   { src: image7, text: `Raabta, kuch toh hai tujhse raabta... 🧲`, audio: song7 },
   { src: image8, text: `Tera hone lagaa hoon\nKhone lagaa hoon, jab se milaa hoon\nTera hone lagaa hoon🕊️`, audio: song8 },
   { src: image9, text: `Aankhon mein teri ajab si ajab si adaayein hain... ✨`, audio: song9 },
-  { src: image10, text: `Main rang sharbaton ka, tu meethe ghaat ka paani... 🍹`, audio: song10 }
+  { src: image10, text: `Main rang sharbaton ka, tu meethe ghaat ka paani... 🍹`, audio: song4 }
 ];
 
 function shuffle(array) {
